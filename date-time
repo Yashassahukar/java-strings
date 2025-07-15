@@ -1,0 +1,119 @@
+1]/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package senseidatetime;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
+
+public class datetime1 {
+
+    public static void main(String[] args) {
+        System.out.println("date" + LocalDate.now());
+        System.out.println("time" + LocalTime.now());
+        System.out.println("date and time " + LocalDateTime.now());
+    }
+    
+}
+2]
+  /*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package senseidatetime;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class customformat2 {
+    
+    public static void main(String[] args) {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
+        System.out.println("Formatted DateTime: " + now.format(format));
+    }
+}
+
+    
+
+3]
+  /*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package senseidatetime;
+
+import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class parsedate3 {
+     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter date (dd-MM-yyyy): ");
+        String input = sc.nextLine();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate date = LocalDate.parse(input, formatter);
+
+        System.out.println("Parsed Date: " + date);
+    }
+    
+}
+
+4]
+  /*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package senseidatetime;
+
+import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+
+public class agefromdob4 {
+     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter your DOB (dd-MM-yyyy): ");
+        String dobInput = sc.nextLine();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate dob = LocalDate.parse(dobInput, formatter);
+        LocalDate today = LocalDate.now();
+
+        Period age = Period.between(dob, today);
+        System.out.println("You are " + age.getYears() + " years old.");
+    }
+}
+5]
+  /*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package senseidatetime;
+
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+
+public class diffcountries5 {
+    public static void main(String[] args) {
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
+        ZonedDateTime india = ZonedDateTime.now(ZoneId.of("Asia/Kolkata"));
+        ZonedDateTime usa = ZonedDateTime.now(ZoneId.of("America/New_York"));
+        ZonedDateTime japan = ZonedDateTime.now(ZoneId.of("Asia/Tokyo"));
+        ZonedDateTime uk = ZonedDateTime.now(ZoneId.of("Europe/London"));
+
+        System.out.println("India: " + india.format(fmt));
+        System.out.println("USA:   " + usa.format(fmt));
+        System.out.println("Japan: " + japan.format(fmt));
+        System.out.println("UK:    " + uk.format(fmt));
+    }
+    
+}

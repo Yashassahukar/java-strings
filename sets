@@ -1,0 +1,70 @@
+1] hash sets 
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package senseisets;
+
+import java.util.*;
+
+public class setoperations {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        Set<String> set = new HashSet<>();
+
+        set.add("apple");    
+        set.add("banana");
+        set.add("apple");  // duplicate, gets ignored
+        set.add("orange");
+
+        System.out.println("HashSet: " + set);
+    }
+    
+    
+}
+2] linked hash set
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package senseisets;
+
+import java.util.*;
+
+public class linkedhashset {
+    public static void main(String[] args) {
+        Set<String> set = new LinkedHashSet<>();
+
+        set.add("dog");
+        set.add("cat");
+        set.add("rabbit");
+
+        System.out.println("LinkedHashSet: " + set);
+    }
+}
+
+3]treesets
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package senseisets;
+
+import java.util.*;
+
+public class treesort {
+     public static void main(String[] args) {
+        Set<Integer> set = new TreeSet<>();
+
+        set.add(50);
+        set.add(10);
+        set.add(30);  
+
+        System.out.println("TreeSet (sorted): " + set);
+    }
+}
+

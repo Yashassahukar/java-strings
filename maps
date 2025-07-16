@@ -122,3 +122,66 @@ public class trycatch {
         }
     }
 }
+5]import java.util.Map;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class exception {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Map<String, Object> studentData = new HashMap<>();
+
+        
+        try {
+            System.out.print("Enter student name: ");
+            String name = scanner.nextLine();
+            studentData.put("Name", name);
+        } catch (Exception e) {
+            System.out.println("Error: Invalid name input. " + e.getMessage());
+        }
+
+        
+        try {
+            System.out.print("Enter age: ");
+            int age = Integer.parseInt(scanner.nextLine());
+            studentData.put("Age", age);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Age must be a valid integer. " + e.getMessage());
+        }
+
+        
+        try {
+            System.out.print("Enter marks (out of 100): ");
+            double marks = Double.parseDouble(scanner.nextLine());
+            studentData.put("Marks", marks);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Marks must be a valid number. " + e.getMessage());
+        }
+
+        
+        try {
+            Object missingValue = studentData.get("Grade");
+            String grade = missingValue.toString();  
+            System.out.println("Grade: " + grade);
+        } catch (NullPointerException e) {
+            System.out.println("Error: Tried to access a missing key (Grade).");
+        }
+
+        
+        try {
+            Object ageObj = studentData.get("Age");
+            String wrongCast = (String) ageObj;  
+        } catch (ClassCastException e) {
+            System.out.println("Error: Tried to cast Age to String. " + e.getMessage());
+        }
+
+        
+        System.out.println("\n--- Student Information ---");
+        for (Map.Entry<String, Object> entry : studentData.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+
+        scanner.close();
+    }
+}

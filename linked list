@@ -1,0 +1,93 @@
+1]basic linked list operations
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package senseicollections;
+
+
+import java.util.LinkedList; 
+
+public class Linkedlist {
+
+
+
+    public static void main(String[] args) {
+        
+        LinkedList<String> l = new LinkedList<String>();
+        
+        l.add("One");
+        l.add("Two");
+        l.add("Three");
+        l.add("Four");
+        l.add("Five");
+        
+        System.out.println(l);
+    }
+    
+}
+
+2]update linked lists 
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package senseicollections;
+
+import java.util.*;
+
+public class updatell {
+    public static void main(String args[])
+    {
+        LinkedList<String> ll = new LinkedList<>();
+
+        ll.add("yashas");
+        ll.add("sahukar");
+        ll.add(1, "MCA");
+
+        System.out.println("Initial LinkedList " + ll);
+
+          // Function call
+        ll.remove(1);
+
+        System.out.println("After the Index Removal " + ll);
+
+        ll.remove("sahukar");
+
+        System.out.println("After the Object Removal "
+                           + ll);
+    }
+    
+}
+3] delete
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package senseicollections;
+
+import java.util.*;
+
+public class Deletell {
+    public static void main(String[] args) {
+      
+        LinkedList<String> l = new LinkedList<>();
+      
+        l.add("A");
+        l.add("B");
+        l.add("C");
+        l.add("D");
+        l.add("E");
+
+        System.out.println("" + l);
+
+
+        System.out.println("Removed Element: " + l.remove(1));
+
+
+        System.out.println("" + l);
+    }
+}
+    
+
+4]

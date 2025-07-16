@@ -83,3 +83,66 @@ public class alphebeticalsortlist {
     
 }
 
+5]import java.util.*;
+
+public class ListSearchUserInput {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        List<String> list = new ArrayList<>();
+
+        System.out.print("How many elements? ");
+        int n = sc.nextInt();
+        sc.nextLine(); 
+
+        System.out.println("Enter elements:");
+        for (int i = 0; i < n; i++) {
+            list.add(sc.nextLine().toLowerCase());
+        }
+
+        System.out.print("Enter value to search: ");
+        String key = sc.nextLine().toLowerCase();
+
+        if (list.contains(key))
+            System.out.println(key + " found ✅");
+        else
+            System.out.println(key + " not found ❌");
+    }
+}
+6]import java.util.*;
+
+public class ListSortUserInput {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        List<Integer> nums = new ArrayList<>();
+
+        System.out.print("How many numbers? ");
+        int n = sc.nextInt();
+
+        System.out.println("Enter numbers:");
+        for (int i = 0; i < n; i++) {
+            nums.add(sc.nextInt());
+        }
+
+        Collections.sort(nums);
+        System.out.println("Sorted list (ascending): " + nums);
+    }
+}
+7]import java.util.*;
+
+public class ReverseSortUserInput {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        List<Integer> nums = new ArrayList<>();
+
+        System.out.print("How many numbers? ");
+        int n = sc.nextInt();
+
+        System.out.println("Enter numbers:");
+        for (int i = 0; i < n; i++) {
+            nums.add(sc.nextInt());
+        }
+
+        Collections.sort(nums, Collections.reverseOrder());
+        System.out.println("Sorted list (descending): " + nums);
+    }
+}

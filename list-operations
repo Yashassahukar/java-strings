@@ -1,0 +1,85 @@
+1]list(search)
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package senseicollections;
+
+import java.util.*;
+
+public class listoperations {
+    public static void main(String[] args) {
+        List<String> fruits = new ArrayList<>(Arrays.asList("apple", "banana", "mango", "orange"));
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter fruit to search: ");
+        String input = sc.nextLine();
+
+        if (fruits.contains(input.toLowerCase()))
+            System.out.println(input + " is in the list ");
+        else
+            System.out.println(input + " not found ");
+    }
+    
+}
+2]sort list
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package senseicollections;
+
+import java.util.*;
+
+public class sortlist {
+    public static void main(String[] args) {
+        List<Integer> nums = new ArrayList<>(Arrays.asList(5, 2, 9, 1, 3));
+
+        System.out.println("Before sorting: " + nums);
+        Collections.sort(nums);
+        System.out.println("Sorted (ascending): " + nums);
+    }
+    
+}
+3] reverse search of list 
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package senseicollections;
+
+import java.util.*;
+
+public class reversesortlist {
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>(Arrays.asList("Yashas", "harshavardhan", "shriya", "hamsa"));
+
+        Collections.sort(names);  
+        System.out.println("Sorted A-Z: " + names);
+
+        Collections.sort(names, Collections.reverseOrder());  
+        System.out.println("Sorted Z-A: " + names);
+    }
+    
+}
+4] reverse sort
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package senseicollections;
+
+import java.util.*;
+
+public class alphebeticalsortlist {
+    public static void main(String[] args) {
+        List<Integer> nums = new ArrayList<>(Arrays.asList(5, 2, 9, 1, 3));
+
+        System.out.println("Before sorting: " + nums);
+        Collections.sort(nums, Collections.reverseOrder());
+        System.out.println("Sorted (descending): " + nums);
+    }
+    
+    
+}
+

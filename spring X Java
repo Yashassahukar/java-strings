@@ -1,0 +1,153 @@
+BankingReportApiIntegrationApplication.java
+
+package com.bankingdemo.banking_report_api_integration;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class BankingReportApiIntegrationApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(BankingReportApiIntegrationApplication.class, args);
+	}
+
+}
+---------------------------------------------------------------------------
+Hellocontroller.java
+package com.bankingdemo.banking_report_api_integration;
+
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
+public class HelloController {
+
+    // In-memory list to store students
+    private final List<Student> studentList = new ArrayList<>();
+
+    // 🟩 Add a student using query parameters
+    @PostMapping("/api/student")
+    public String addStudent(@RequestParam String name, @RequestParam int marks) {
+        Student student = new Student(name, marks);
+        studentList.add(student);
+        return "Student added successfully!";
+    }
+
+    // 🟦 Get all students
+    @GetMapping("/api/students")
+    public List<Student> getAllStudents() {
+        return studentList;
+    }
+
+    // 🟥 Clear the list
+    @GetMapping("/api/students/clear")
+    public String clearAllStudents() {
+        studentList.clear();
+        return "All students removed!";
+    }
+}
+-------------------------------------------------------------------------------------------------------
+students.java
+package com.bankingdemo.banking_report_api_integration;
+
+public class Student {
+    private String studentName;
+    private int marks;
+    private String status;
+
+    public Student() {}
+
+    public Student(String studentName, int marks) {
+        this.studentName = studentName;
+        this.marks = marks;
+        this.status = calculateStatus(marks);
+    }
+
+    private String calculateStatus(int marks) {
+        if (marks >= 90) return "Excellent";
+        else if (marks >= 75) return "Very Good";
+        else if (marks >= 50) return "Pass";
+        else return "Fail";
+    }
+
+    // Getters and setters
+    public String getStudentName() { return studentName; }
+    public void setStudentName(String studentName) { this.studentName = studentName; }
+
+    public int getMarks() { return marks; }
+    public void setMarks(int marks) {
+        this.marks = marks;
+        this.status = calculateStatus(marks);
+    }
+
+    public String getStatus() { return status; }
+}
+-------------------------------------------------------
+pom.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.5.3</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.bankingdemo</groupId>
+	<artifactId>banking-report-api-integration</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>banking-report-api-integration</name>
+	<description>Demo project for Spring Boot</description>
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
